@@ -13,6 +13,10 @@ echo "installing Git"
 
 sudo apt-get install git
 
+echo "installing vim"
+
+sudo apt-get install vim
+
 echo "Installing Java 7 and Java 8"
 
 sudo add-apt-repository ppa:webupd8team/java -y

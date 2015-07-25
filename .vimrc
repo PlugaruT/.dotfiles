@@ -24,6 +24,16 @@ set wildmenu
 " highlight matching [{()}]
 set showmatch
 
+" Open NERDTree automatically when vim starts
+" autocmd vimenter * NERDTree 
+
+" Open a NERDTree automatically when vim starts up if no files were specified
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Open NERDTree with Ctrl+n
+map <C-n> :NERDTreeToggle<CR>
+
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
 set background=dark
@@ -36,8 +46,31 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+
+" Rails support
 Plugin 'tpope/vim-rails'
+
+" Solarized color scheme
 Plugin 'altercation/vim-colors-solarized'
+
+" NerdTree plugin
+Plugin 'scrooloose/nerdtree'
+
+" Git status for files
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+
+" Integration with git
+Plugin 'airblade/vim-gitgutter'
+
+" Autocomplete plugin
+Plugin 'Valloric/YouCompleteMe'
+
+" HTM5 support for vim
+Plugin 'othree/html5.vim'
+
+" JS syntax and indent plugin
+Plugin 'pangloss/vim-javascript'
+
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
