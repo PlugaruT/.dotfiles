@@ -1,28 +1,37 @@
-set nocompatible             
-filetype off
+set nocompatible           
+
+" enable filetype-specific indenting
+filetype indent on
+
+" enable filetype-specific plugins
+filetype plugin on   
+
+" enable filetype detection
+filetype on
+
 " enable syntax highlighting
-syntax enable
+syntax on
 
 " show line numbers
 set number 
 
-"set tabs to have 2 spaces
+" set tabs to have 2 spaces
 set ts=2
 
-"indent when moving to the next line while writing code
-set autoindent
-
-"show a visual line under the cursor's current line 
-set showmatch
-
-" highlight current line
+" show a visual line under the cursor's current line 
 set cursorline
+
+" indent when moving to the next line while writing code
+set autoindent
 
 " visual autocomplete for command menus
 set wildmenu
 
 " highlight matching [{()}]
 set showmatch
+
+" Status line enable
+set laststatus=2
 
 " Open NERDTree automatically when vim starts
 " autocmd vimenter * NERDTree 
@@ -34,6 +43,16 @@ set showmatch
 " Open NERDTree with Ctrl+n
 map <C-n> :NERDTreeToggle<CR>
 
+" Solarized configurations
+set t_Co=16
+let g:solarized_termcolors=   16
+let g:solarized_termtrans =   0
+let g:solarized_degrade   =   0
+let g:solarized_bold      =   1
+let g:solarized_underline =   1
+let g:solarized_italic    =   1
+let g:solarized_contrast  =   "normal"
+let g:solarized_visibility=   "normal"
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
 set background=dark
@@ -41,14 +60,15 @@ colorscheme solarized
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
 " Rails support
 Plugin 'tpope/vim-rails'
+
+" Ruby support
+Plugin 'vim-ruby/vim-ruby'
 
 " Solarized color scheme
 Plugin 'altercation/vim-colors-solarized'
@@ -71,7 +91,14 @@ Plugin 'othree/html5.vim'
 " JS syntax and indent plugin
 Plugin 'pangloss/vim-javascript'
 
-" The following are examples of different formats supported.
+" Status bar
+Plugin 'bling/vim-airline'
+
+" Code snippents
+Plugin 'Shougo/neocomplete'
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
+
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
@@ -79,9 +106,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'L9'
 " Git plugin not hosted on GitHub
 Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
@@ -98,4 +122,4 @@ filetype plugin indent on    " required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+let g:airline_powerline_fonts = 1
